@@ -1,0 +1,56 @@
+﻿<Window x:Class="KLIMOV_ZASHITA.window.admin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KLIMOV_ZASHITA.window"
+        mc:Ignorable="d"
+        Title="admin" Height="450" Width="800" IsVisibleChanged="Page_isvisible">
+
+    <Grid>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="49*"></RowDefinition>
+            <RowDefinition Height="330*"></RowDefinition>
+            <RowDefinition Height="49*"/>
+        </Grid.RowDefinitions>
+
+
+        <Grid Grid.Row="1">
+
+            <DataGrid x:Name="dtclient" Background="White" AutoGenerateColumns="False" SelectionChanged="dtclient_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}" Width="auto"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" Width="auto"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}" Width="auto"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Емайл" Binding="{Binding Email}" Width="auto"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}" Width="auto"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Пол" Binding="{Binding GenderCode}" Width="auto"></DataGridTextColumn>
+                    <DataGridTemplateColumn Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btn_edit" Content="Редактировать" Click="btn_edit_Click" ></Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="484*"/>
+                <ColumnDefinition Width="309*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Добавить" Click="button1_Click" Margin="0,18,376.5,10"/>
+
+            <TextBox x:Name="TBoxSearch" TextChanged="TBoxSearch_TextChanged" Margin="272,17,93,10" RenderTransformOrigin="0.502,0.5" />
+            <TextBlock x:Name="TBoxSearch1" Text="Поиск:" Margin="226,18,216,10" ></TextBlock>
+            <Button Content="удалить" Click="button11_Click" Margin="112,18,265,10"/>
+        </Grid>
+        <Image x:Name="image" Source="/KLIMOV_ZASHITA;component/page/remont.jpg" HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="101" />
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,52 @@
+﻿<Window x:Class="KLIMOV_ZASHITA.window.User"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KLIMOV_ZASHITA.window"
+        mc:Ignorable="d"
+        Title="User" Height="450" Width="800" IsVisibleChanged="Page_isvisible">
+    <Grid>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="49*"></RowDefinition>
+            <RowDefinition Height="330*"></RowDefinition>
+            <RowDefinition Height="49*"/>
+        </Grid.RowDefinitions>
+
+
+        <Grid Grid.Row="1">
+
+            <DataGrid x:Name="dtclient" Background="White" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Название" Binding="{Binding Title}" Width="auto"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Цена" Binding="{Binding Cost}" Width="auto"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Скидка" Binding="{Binding Discount}" Width="auto"></DataGridTextColumn>
+                    <DataGridTemplateColumn Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btn_edit" Content="Редактировать" Click="btn_edit_Click" ></Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="484*"/>
+                <ColumnDefinition Width="309*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Добавить"  Margin="0,18,376.5,10"/>
+
+            <TextBox x:Name="TBoxSearch" TextChanged="TBoxSearch_TextChanged" Margin="217,17,148.5,10" RenderTransformOrigin="0.502,0.5" ></TextBox>
+            <TextBlock x:Name="TBoxSearch1" Text="Поиск:" Margin="170,18,271.5,10" ></TextBlock>
+            <Button Content="удалить"  Margin="366,16,10,12"/>
+        </Grid>
+        <Image x:Name="image" Source="/KLIMOV_ZASHITA;component/page/remont.jpg" HorizontalAlignment="Left" Height="38" VerticalAlignment="Top" Width="73" Margin="10,5,0,0" />
+
+
+    </Grid>
+</Window>
